@@ -1,0 +1,71 @@
+
+
+                                                mOptFEMP1
+
+
+             mOptFEMP1 is a MATLAB/GNU Octave library providing simple and efficient
+             vectorized routines for P1-Lagrange Finite Element Methods in any dimension
+		 
+
+This toolbox contains different optimization techniques to perform the assembly
+of P1 finite element matrices in Matlab and Octave,  from the standard approach (base version and OptV1)
+to recent vectorized ones (OptV2, OptV and OptVS), without any low level language used.
+
+Versions
+----------
+  * Version 0.1b0 (beta version)  
+    We have implemented the assembly of :
+    - the Mass Matrix, 
+    - the Weighted Mass Matrix,
+    - the Stiffness Matrix,
+    - the Elasticity Stiffness Matrix in 2D and 3D.
+
+Requirements
+--------------
+    Needs Matlab or GNU Octave 3.8.*
+    see F. Cuvelier homepage <www.math.univ-paris13.fr/~cuvelier>
+
+Testing and Working
+----------------------
+    Ubuntu 14.04 LTS (x86_64) with
+        from Matlab R2012b to R2014b
+        GNU Octave 3.8.1
+
+Quick testing
+---------------
+To use the mOptFEMP1 package, you first have to run :
+  InitmOptFEMP1
+Then you can run some benchs :
+  [Lndof,Tcpu]=benchMass(3,{'OptVS','OptV','OptV2','OptV1'},[5:5:25]);
+  [Lndof,Tcpu]=benchStiff(4,{'OptVS','OptV','OptV2'},[5],'nbruns',1,'isplot',true);
+  [Lndof,Tcpu]=benchStiffElas(2,{'OptVS','OptV','OptV2'},[100:100:500],'nbruns',1,'isplot',true);
+  [Lndof,Tcpu]=benchMassW(2,{'OptVS','OptV','OptV2','OptV1'},[50:50:250]);
+  ...
+  Use help for more informations
+  
+License issues
+-----------------
+mOptFEMP1 is published under the terms of the GNU General Public License.
+
+mOptFEMP1 is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+
+mOptFEMP1 is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.
+If not, see http://www.gnu.org/licenses/.
+
+Software using source files of this project or significant parts of it,
+should include the following attribution notice:
+% --------------------------------------------------------------------
+% ATTRIBUTION NOTICE:
+% This product includes software developed for the mOptFEMP1 project at
+% (C) University Paris XIII, Galilee Institute, LAGA, France.
+%
+% mOptFEMP1 is a MATLAB/Octave software package for P1-Lagrange Finite Element Methods in any dimension.
+% The project is maintained by
+%   F. Cuvelier, C. Japhet and G. Scarella.
+% --------------------------------------------------------------------
